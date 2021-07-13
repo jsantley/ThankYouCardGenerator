@@ -16,6 +16,7 @@ namespace ThankYouCardGenerator
         string giftGiver;
         string giftOccassion;
         string cardSender;
+        
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +54,10 @@ namespace ThankYouCardGenerator
             {
 
                 generatedNoteTextBox.Text = $"Dear {giftGiver}, \n Thank you so much for the {giftGiven}!  I cannot wait to put it to good use!  I am so glad that you could attend my {giftOccassion}! \n Thanks again! \n Sincerely, \n {cardSender}";
+                senderTextBox.Clear();
+                occassionTextBox.Clear();
+                giverTextBox.Clear();
+                giftTextBox.Clear();
 
             }
             else
