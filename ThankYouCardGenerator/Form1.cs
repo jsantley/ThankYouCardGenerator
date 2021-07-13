@@ -16,41 +16,41 @@ namespace ThankYouCardGenerator
         string giftGiver;
         string giftOccassion;
         string cardSender;
-        
+
         public Form1()
         {
             InitializeComponent();
 
-            
+
         }
 
         #region TextBoxToString
         private void giftTextBox_TextChanged(object sender, EventArgs e)
-            //changes the input from this textbox into a useable string from the variables previously created.
+        //changes the input from this textbox into a useable string from the variables previously created.
         {
             giftGiven = giftTextBox.Text.ToString();
-            
+
         }
 
         private void giverTextBox_TextChanged(object sender, EventArgs e)
         //changes the input from this textbox into a useable string from the variables previously created.
         {
             giftGiver = giverTextBox.Text.ToString();
-            
+
         }
 
         private void occassionTextBox_TextChanged(object sender, EventArgs e)
         //changes the input from this textbox into a useable string from the variables previously created.
         {
             giftOccassion = occassionTextBox.Text.ToString();
-            
+
         }
 
         private void senderTextBox_TextChanged(object sender, EventArgs e)
         //changes the input from this textbox into a useable string from the variables previously created.
         {
             cardSender = senderTextBox.Text.ToString();
-            
+
         }
         #endregion
         #region ActionIfKeyPressed
@@ -63,23 +63,45 @@ namespace ThankYouCardGenerator
             {
 
                 generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
-                senderTextBox.Clear();
-                occassionTextBox.Clear();
-                giverTextBox.Clear();
-                giftTextBox.Clear();
+                
 
             }
             else
             {
                 return;
             }
-           
+
 
         }
+
+
+        #endregion
+        #region ButtonClicks
+        //added buttons to make it more intuitive and user friendly.
+        private void generateButton_Click(object sender, EventArgs e)
+            //does the same thing as the enter button.
+        {
+            generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            
+        }
+
+
         #endregion
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            return;
+        }
 
-
+        private void resetButton_Click(object sender, EventArgs e)
+            //I made a reset button instead of making "enter" the only way to reset the form. 
+        {
+            senderTextBox.Clear();
+            occassionTextBox.Clear();
+            giverTextBox.Clear();
+            giftTextBox.Clear();
+            generatedNoteTextBox.Clear();
+        }
     }
 }
 
