@@ -59,10 +59,10 @@ namespace ThankYouCardGenerator
         */
         private void senderTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            if (e.KeyCode == Keys.Enter)
             {
 
-                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n Thank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \n I am so glad that you could attend my {giftOccassion}! \n Thanks again! \n Sincerely, \n {cardSender}";
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
                 senderTextBox.Clear();
                 occassionTextBox.Clear();
                 giverTextBox.Clear();

@@ -38,7 +38,7 @@ namespace ThankYouCardGenerator
             this.occassionLabel = new System.Windows.Forms.Label();
             this.occassionTextBox = new System.Windows.Forms.TextBox();
             this.senderTextBox = new System.Windows.Forms.TextBox();
-            this.generatedNoteTextBox = new System.Windows.Forms.TextBox();
+            this.generatedNoteTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // giftTextBox
@@ -123,12 +123,11 @@ namespace ThankYouCardGenerator
             // 
             // generatedNoteTextBox
             // 
-            this.generatedNoteTextBox.Location = new System.Drawing.Point(113, 189);
-            this.generatedNoteTextBox.Multiline = true;
+            this.generatedNoteTextBox.Location = new System.Drawing.Point(88, 190);
             this.generatedNoteTextBox.Name = "generatedNoteTextBox";
-            this.generatedNoteTextBox.ReadOnly = true;
-            this.generatedNoteTextBox.Size = new System.Drawing.Size(594, 249);
+            this.generatedNoteTextBox.Size = new System.Drawing.Size(686, 238);
             this.generatedNoteTextBox.TabIndex = 10;
+            this.generatedNoteTextBox.Text = "";
             // 
             // Form1
             // 
@@ -163,7 +162,7 @@ namespace ThankYouCardGenerator
         private System.Windows.Forms.Label occassionLabel;
         private System.Windows.Forms.TextBox occassionTextBox;
         private System.Windows.Forms.TextBox senderTextBox;
-        private System.Windows.Forms.TextBox generatedNoteTextBox;
+        private System.Windows.Forms.RichTextBox generatedNoteTextBox;
     }
 }
 
