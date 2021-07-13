@@ -24,36 +24,38 @@ namespace ThankYouCardGenerator
             
         }
 
+        #region TextBoxToString
         private void giftTextBox_TextChanged(object sender, EventArgs e)
         {
-            giftGiven = giftTextBox.Text;
-            giftGiven = giftGiven.ToString();
+            giftGiven = giftTextBox.Text.ToString();
+            
         }
 
         private void giverTextBox_TextChanged(object sender, EventArgs e)
         {
-            giftGiver = giverTextBox.Text;
-            giftGiver = giftGiver.ToString();
+            giftGiver = giverTextBox.Text.ToString();
+            
         }
 
         private void occassionTextBox_TextChanged(object sender, EventArgs e)
         {
-            giftOccassion = occassionTextBox.Text;
-            giftOccassion = giftOccassion.ToString();
+            giftOccassion = occassionTextBox.Text.ToString();
+            
         }
 
         private void senderTextBox_TextChanged(object sender, EventArgs e)
         {
-            cardSender = senderTextBox.Text;
-            cardSender = cardSender.ToString();
+            cardSender = senderTextBox.Text.ToString();
+            
         }
-
+        #endregion
+        #region ActionIfKeyPressed
         private void senderTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
 
-                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n Thank you so much for the {giftGiven}!  I cannot wait to put it to good use!  I am so glad that you could attend my {giftOccassion}! \n Thanks again! \n Sincerely, \n {cardSender}";
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n Thank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \n I am so glad that you could attend my {giftOccassion}! \n Thanks again! \n Sincerely, \n {cardSender}";
                 senderTextBox.Clear();
                 occassionTextBox.Clear();
                 giverTextBox.Clear();
@@ -64,11 +66,13 @@ namespace ThankYouCardGenerator
             {
                 return;
             }
+           
 
         }
-        
+        #endregion
 
-        
+
+
     }
 }
 
