@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ThankYouCardGenerator
 {
@@ -89,8 +90,12 @@ namespace ThankYouCardGenerator
         #endregion
 
         private void saveButton_Click(object sender, EventArgs e)
+            //added the ability to save as a text file. 
         {
-            return;
+            TextWriter txt = new StreamWriter("C:\\Users\\Jordan S\\Documents\\thankyou.txt");
+            txt.Write(generatedNoteTextBox.Text);
+            txt.Close();
+            MessageBox.Show("Results have been saved!");
         }
 
         private void resetButton_Click(object sender, EventArgs e)
