@@ -92,7 +92,8 @@ namespace ThankYouCardGenerator
         private void saveButton_Click(object sender, EventArgs e)
             //added the ability to save as a text file. 
         {
-            TextWriter txt = new StreamWriter("C:\\Users\\Jordan S\\Documents\\thankyou.txt");
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            TextWriter txt = new StreamWriter(Path.Combine(docPath, "thankyounote.txt"));
             txt.Write(generatedNoteTextBox.Text);
             txt.Close();
             MessageBox.Show("Results have been saved!");
