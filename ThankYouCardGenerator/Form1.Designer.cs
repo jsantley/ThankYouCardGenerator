@@ -29,25 +29,25 @@ namespace ThankYouCardGenerator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.giftTextBox = new System.Windows.Forms.TextBox();
             this.giftLabel = new System.Windows.Forms.Label();
             this.whoGaveLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.giverTextBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.fromLabel = new System.Windows.Forms.Label();
             this.occassionLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.generatedNote = new System.Windows.Forms.TextBox();
+            this.occassionTextBox = new System.Windows.Forms.TextBox();
+            this.senderTextBox = new System.Windows.Forms.TextBox();
+            this.generatedNoteTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // giftTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(221, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.giftTextBox.Location = new System.Drawing.Point(221, 91);
+            this.giftTextBox.Name = "giftTextBox";
+            this.giftTextBox.Size = new System.Drawing.Size(156, 20);
+            this.giftTextBox.TabIndex = 0;
+            this.giftTextBox.TextChanged += new System.EventHandler(this.giftTextBox_TextChanged);
             // 
             // giftLabel
             // 
@@ -66,14 +66,14 @@ namespace ThankYouCardGenerator
             this.whoGaveLabel.Size = new System.Drawing.Size(114, 13);
             this.whoGaveLabel.TabIndex = 2;
             this.whoGaveLabel.Text = "Who gave this to you?";
-           //this.whoGaveLabel.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox2
+            // giverTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(221, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 3;
+            this.giverTextBox.Location = new System.Drawing.Point(221, 138);
+            this.giverTextBox.Name = "giverTextBox";
+            this.giverTextBox.Size = new System.Drawing.Size(156, 20);
+            this.giverTextBox.TabIndex = 3;
+            this.giverTextBox.TextChanged += new System.EventHandler(this.giverTextBox_TextChanged);
             // 
             // titleLabel
             // 
@@ -83,7 +83,6 @@ namespace ThankYouCardGenerator
             this.titleLabel.Size = new System.Drawing.Size(136, 13);
             this.titleLabel.TabIndex = 4;
             this.titleLabel.Text = "Thank You Note Generator";
-            //this.titleLabel.Click += new System.EventHandler(this.titleLabel_Click);
             // 
             // fromLabel
             // 
@@ -93,7 +92,6 @@ namespace ThankYouCardGenerator
             this.fromLabel.Size = new System.Drawing.Size(129, 13);
             this.fromLabel.TabIndex = 6;
             this.fromLabel.Text = "Who is sending this card?";
-            //this.fromLabel.Click += new System.EventHandler(this.fromLabel_Click);
             // 
             // occassionLabel
             // 
@@ -104,44 +102,49 @@ namespace ThankYouCardGenerator
             this.occassionLabel.TabIndex = 7;
             this.occassionLabel.Text = "What was the occassion?";
             // 
-            // textBox3
+            // occassionTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(618, 84);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 8;
+            this.occassionTextBox.Location = new System.Drawing.Point(618, 84);
+            this.occassionTextBox.Name = "occassionTextBox";
+            this.occassionTextBox.Size = new System.Drawing.Size(156, 20);
+            this.occassionTextBox.TabIndex = 8;
+            this.occassionTextBox.TextChanged += new System.EventHandler(this.occassionTextBox_TextChanged);
             // 
-            // textBox4
+            // senderTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(618, 141);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 20);
-            this.textBox4.TabIndex = 9;
+            this.senderTextBox.AcceptsReturn = true;
+            this.senderTextBox.Location = new System.Drawing.Point(618, 141);
+            this.senderTextBox.Multiline = true;
+            this.senderTextBox.Name = "senderTextBox";
+            this.senderTextBox.Size = new System.Drawing.Size(156, 20);
+            this.senderTextBox.TabIndex = 9;
+            this.senderTextBox.TextChanged += new System.EventHandler(this.senderTextBox_TextChanged);
+            this.senderTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.senderTextBox_KeyDown);
             // 
-            // generatedNote
+            // generatedNoteTextBox
             // 
-            this.generatedNote.Location = new System.Drawing.Point(113, 189);
-            this.generatedNote.Multiline = true;
-            this.generatedNote.Name = "generatedNote";
-            this.generatedNote.Size = new System.Drawing.Size(594, 249);
-            this.generatedNote.TabIndex = 10;
+            this.generatedNoteTextBox.Location = new System.Drawing.Point(113, 189);
+            this.generatedNoteTextBox.Multiline = true;
+            this.generatedNoteTextBox.Name = "generatedNoteTextBox";
+            this.generatedNoteTextBox.ReadOnly = true;
+            this.generatedNoteTextBox.Size = new System.Drawing.Size(594, 249);
+            this.generatedNoteTextBox.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.generatedNote);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.generatedNoteTextBox);
+            this.Controls.Add(this.senderTextBox);
+            this.Controls.Add(this.occassionTextBox);
             this.Controls.Add(this.occassionLabel);
             this.Controls.Add(this.fromLabel);
             this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.giverTextBox);
             this.Controls.Add(this.whoGaveLabel);
             this.Controls.Add(this.giftLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.giftTextBox);
             this.Name = "Form1";
             this.Text = "Thank You Note Generator";
             this.ResumeLayout(false);
@@ -151,16 +154,16 @@ namespace ThankYouCardGenerator
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox giftTextBox;
         private System.Windows.Forms.Label giftLabel;
         private System.Windows.Forms.Label whoGaveLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox giverTextBox;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label fromLabel;
         private System.Windows.Forms.Label occassionLabel;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox generatedNote;
+        private System.Windows.Forms.TextBox occassionTextBox;
+        private System.Windows.Forms.TextBox senderTextBox;
+        private System.Windows.Forms.TextBox generatedNoteTextBox;
     }
 }
 
