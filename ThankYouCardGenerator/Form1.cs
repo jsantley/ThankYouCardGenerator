@@ -18,7 +18,7 @@ namespace ThankYouCardGenerator
         string giftOccassion;
         string cardSender;
         string secondGift;
-        bool money;
+        bool   money;
 
 
         public Form1()
@@ -77,8 +77,7 @@ namespace ThankYouCardGenerator
             if (e.KeyCode == Keys.Enter)
             {
 
-                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
-                
+                generateNote(giftGiven, giftGiver, giftOccassion, cardSender, secondGift, money);
 
             }
             else
@@ -91,13 +90,26 @@ namespace ThankYouCardGenerator
 
 
         #endregion
+
+        #region methodCreationNote
+        //made a method that could be called to generate the note instead of repeated statements. 
+        private void generateNote(string giftGiven,string giftGiver, string giftOccassion, string cardSender, string secondGift, bool money)
+        {
+            generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+
+            return;
+        }
+
+
+
+        #endregion
         #region ButtonClicks
         //added buttons to make it more intuitive and user friendly.
         private void generateButton_Click(object sender, EventArgs e)
             //does the same thing as the enter button.
         {
-            generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
-            
+            generateNote(giftGiven, giftGiver, giftOccassion, cardSender, secondGift, money);
+
         }
 
 
