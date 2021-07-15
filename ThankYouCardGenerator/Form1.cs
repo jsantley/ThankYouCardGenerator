@@ -17,6 +17,10 @@ namespace ThankYouCardGenerator
         string giftGiver;
         string giftOccassion;
         string cardSender;
+        string secondGift;
+        bool secondGifttrue;
+        bool   money;
+
 
         public Form1()
         {
@@ -53,27 +57,73 @@ namespace ThankYouCardGenerator
             cardSender = senderTextBox.Text.ToString();
 
         }
+
+        private void secondGiftTextBox_TextChanged(object sender, EventArgs e)
+        {
+            secondGift = secondGiftTextBox.Text.ToString();
+            secondGifttrue = secondGiftTextBox.Text != "";
+
+        }
+
+        private void wasMoney_CheckedChanged(object sender, EventArgs e)
+        {
+            if (wasMoney.Checked == true)
+            {
+                money = true;
+            } else if (wasMoney.Checked == false)
+            {
+                money = false;
+            }
+            
+        }
+
         #endregion
         #region ActionIfKeyPressed
         /*at the senderTextBox, this checks to see if either the Tab Key or the Enter keys are pressed to trigger the creation of the thank you card.  
          * It will clear out all the other textboxes to allow for another run of the program upon the key event. 
         */
-        private void senderTextBox_KeyDown(object sender, KeyEventArgs e)
+        public void occassionTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-
-                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
-                
-
+                generateNote(giftGiven, giftGiver, giftOccassion, cardSender, secondGift, money);
             }
             else
             {
                 return;
             }
-
-
         }
+
+
+
+
+            #endregion
+
+            #region methodCreationNote
+            //made a method that could be called to generate the note instead of repeated statements. 
+            private void generateNote(string giftGiven,string giftGiver, string giftOccassion, string cardSender, string secondGift, bool money)
+            {
+            
+            if (secondGifttrue == false && money == false)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  We cannot wait to put it to good use!  \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+
+            } else if (secondGifttrue == false && money == true)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the generous gift!  We cannot wait to put it to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            } else if (secondGifttrue == true && money == false)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven} and the {secondGift}!  We cannot wait to put them to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+
+            }
+            else if (secondGifttrue == true && money == true)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the generous gifts!  We cannot wait to put them to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            }
+
+            return;
+        }
+
 
 
         #endregion
@@ -82,12 +132,12 @@ namespace ThankYouCardGenerator
         private void generateButton_Click(object sender, EventArgs e)
             //does the same thing as the enter button.
         {
-            generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
-            
+            generateNote(giftGiven, giftGiver, giftOccassion, cardSender, secondGift, money);
+
         }
 
 
-        #endregion
+        
 
         private void saveButton_Click(object sender, EventArgs e)
             //added the ability to save as a text file in the users documents folder. 
@@ -107,7 +157,13 @@ namespace ThankYouCardGenerator
             giverTextBox.Clear();
             giftTextBox.Clear();
             generatedNoteTextBox.Clear();
+            secondGiftTextBox.Clear();
+            wasMoney.Checked = false;
+            
         }
+
+        #endregion
+
     }
 }
 
