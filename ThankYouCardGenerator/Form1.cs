@@ -72,33 +72,31 @@ namespace ThankYouCardGenerator
         /*at the senderTextBox, this checks to see if either the Tab Key or the Enter keys are pressed to trigger the creation of the thank you card.  
          * It will clear out all the other textboxes to allow for another run of the program upon the key event. 
         */
-        private void occassionTextBox_KeyDown(object sender, KeyEventArgs e)
+        public void occassionTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-
                 generateNote(giftGiven, giftGiver, giftOccassion, cardSender, secondGift, money);
-
             }
             else
             {
                 return;
             }
-
-
         }
 
 
-        #endregion
 
-        #region methodCreationNote
-        //made a method that could be called to generate the note instead of repeated statements. 
-        private void generateNote(string giftGiven,string giftGiver, string giftOccassion, string cardSender, string secondGift, bool money)
-        {
+
+            #endregion
+
+            #region methodCreationNote
+            //made a method that could be called to generate the note instead of repeated statements. 
+            private void generateNote(string giftGiven,string giftGiver, string giftOccassion, string cardSender, string secondGift, bool money)
+            {
             generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
 
             return;
-        }
+            }
 
 
 
@@ -113,7 +111,7 @@ namespace ThankYouCardGenerator
         }
 
 
-        #endregion
+        
 
         private void saveButton_Click(object sender, EventArgs e)
             //added the ability to save as a text file. 
@@ -137,6 +135,7 @@ namespace ThankYouCardGenerator
             
         }
 
+        #endregion
 
     }
 }
