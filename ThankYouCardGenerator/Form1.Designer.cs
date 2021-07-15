@@ -42,11 +42,14 @@ namespace ThankYouCardGenerator
             this.saveButton = new System.Windows.Forms.Button();
             this.generateButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
+            this.wasMoney = new System.Windows.Forms.CheckBox();
+            this.secondGiftTextBox = new System.Windows.Forms.TextBox();
+            this.secondGiftLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // giftTextBox
             // 
-            this.giftTextBox.Location = new System.Drawing.Point(221, 91);
+            this.giftTextBox.Location = new System.Drawing.Point(221, 70);
             this.giftTextBox.Name = "giftTextBox";
             this.giftTextBox.Size = new System.Drawing.Size(156, 20);
             this.giftTextBox.TabIndex = 0;
@@ -56,7 +59,7 @@ namespace ThankYouCardGenerator
             // 
             this.giftLabel.AutoSize = true;
             this.giftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.giftLabel.Location = new System.Drawing.Point(65, 92);
+            this.giftLabel.Location = new System.Drawing.Point(65, 70);
             this.giftLabel.Name = "giftLabel";
             this.giftLabel.Size = new System.Drawing.Size(134, 15);
             this.giftLabel.TabIndex = 1;
@@ -93,7 +96,7 @@ namespace ThankYouCardGenerator
             // 
             this.fromLabel.AutoSize = true;
             this.fromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fromLabel.Location = new System.Drawing.Point(442, 141);
+            this.fromLabel.Location = new System.Drawing.Point(65, 104);
             this.fromLabel.Name = "fromLabel";
             this.fromLabel.Size = new System.Drawing.Size(147, 15);
             this.fromLabel.TabIndex = 6;
@@ -103,7 +106,7 @@ namespace ThankYouCardGenerator
             // 
             this.occassionLabel.AutoSize = true;
             this.occassionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.occassionLabel.Location = new System.Drawing.Point(442, 92);
+            this.occassionLabel.Location = new System.Drawing.Point(403, 138);
             this.occassionLabel.Name = "occassionLabel";
             this.occassionLabel.Size = new System.Drawing.Size(145, 15);
             this.occassionLabel.TabIndex = 7;
@@ -111,22 +114,23 @@ namespace ThankYouCardGenerator
             // 
             // occassionTextBox
             // 
-            this.occassionTextBox.Location = new System.Drawing.Point(618, 84);
+            this.occassionTextBox.Location = new System.Drawing.Point(618, 138);
             this.occassionTextBox.Name = "occassionTextBox";
             this.occassionTextBox.Size = new System.Drawing.Size(156, 20);
             this.occassionTextBox.TabIndex = 8;
             this.occassionTextBox.TextChanged += new System.EventHandler(this.occassionTextBox_TextChanged);
+           
             // 
             // senderTextBox
             // 
             this.senderTextBox.AcceptsReturn = true;
-            this.senderTextBox.Location = new System.Drawing.Point(618, 141);
+            this.senderTextBox.Location = new System.Drawing.Point(221, 103);
             this.senderTextBox.Multiline = true;
             this.senderTextBox.Name = "senderTextBox";
             this.senderTextBox.Size = new System.Drawing.Size(156, 20);
             this.senderTextBox.TabIndex = 9;
             this.senderTextBox.TextChanged += new System.EventHandler(this.senderTextBox_TextChanged);
-            this.senderTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.senderTextBox_KeyDown);
+            this.senderTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.occassionTextBox_KeyDown);
             // 
             // generatedNoteTextBox
             // 
@@ -167,11 +171,42 @@ namespace ThankYouCardGenerator
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // wasMoney
+            // 
+            this.wasMoney.AutoSize = true;
+            this.wasMoney.Location = new System.Drawing.Point(406, 105);
+            this.wasMoney.Name = "wasMoney";
+            this.wasMoney.Size = new System.Drawing.Size(123, 17);
+            this.wasMoney.TabIndex = 14;
+            this.wasMoney.Text = "Was the gift money?";
+            this.wasMoney.UseVisualStyleBackColor = true;
+            this.wasMoney.CheckedChanged += new System.EventHandler(this.wasMoney_CheckedChanged);
+            // 
+            // secondGiftTextBox
+            // 
+            this.secondGiftTextBox.Location = new System.Drawing.Point(618, 70);
+            this.secondGiftTextBox.Name = "secondGiftTextBox";
+            this.secondGiftTextBox.Size = new System.Drawing.Size(156, 20);
+            this.secondGiftTextBox.TabIndex = 15;
+            this.secondGiftTextBox.TextChanged += new System.EventHandler(this.secondGiftTextBox_TextChanged);
+            // 
+            // secondGiftLabel
+            // 
+            this.secondGiftLabel.AutoSize = true;
+            this.secondGiftLabel.Location = new System.Drawing.Point(403, 73);
+            this.secondGiftLabel.Name = "secondGiftLabel";
+            this.secondGiftLabel.Size = new System.Drawing.Size(199, 13);
+            this.secondGiftLabel.TabIndex = 16;
+            this.secondGiftLabel.Text = "What was the second gift (if applicable)?";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.secondGiftLabel);
+            this.Controls.Add(this.secondGiftTextBox);
+            this.Controls.Add(this.wasMoney);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.saveButton);
@@ -207,6 +242,9 @@ namespace ThankYouCardGenerator
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.CheckBox wasMoney;
+        private System.Windows.Forms.TextBox secondGiftTextBox;
+        private System.Windows.Forms.Label secondGiftLabel;
     }
 }
 

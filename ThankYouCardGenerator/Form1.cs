@@ -17,6 +17,9 @@ namespace ThankYouCardGenerator
         string giftGiver;
         string giftOccassion;
         string cardSender;
+        string secondGift;
+        bool money;
+
 
         public Form1()
         {
@@ -53,12 +56,23 @@ namespace ThankYouCardGenerator
             cardSender = senderTextBox.Text.ToString();
 
         }
+
+        private void secondGiftTextBox_TextChanged(object sender, EventArgs e)
+        {
+            secondGift = secondGiftTextBox.Text.ToString();
+        }
+
+        private void wasMoney_CheckedChanged(object sender, EventArgs e)
+        {
+            money = true;
+        }
+
         #endregion
         #region ActionIfKeyPressed
         /*at the senderTextBox, this checks to see if either the Tab Key or the Enter keys are pressed to trigger the creation of the thank you card.  
          * It will clear out all the other textboxes to allow for another run of the program upon the key event. 
         */
-        private void senderTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void occassionTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -107,7 +121,11 @@ namespace ThankYouCardGenerator
             giverTextBox.Clear();
             giftTextBox.Clear();
             generatedNoteTextBox.Clear();
+            secondGiftTextBox.Clear();
+            
         }
+
+
     }
 }
 
