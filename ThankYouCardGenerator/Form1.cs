@@ -19,7 +19,7 @@ namespace ThankYouCardGenerator
         string cardSender;
         string secondGift;
         bool secondGifttrue;
-        bool   money;
+        bool money;
 
 
         public Form1()
@@ -59,6 +59,7 @@ namespace ThankYouCardGenerator
         }
 
         private void secondGiftTextBox_TextChanged(object sender, EventArgs e)
+            //checks if there is something in the text box before setting the bool secondGiftTrue to true.
         {
             secondGift = secondGiftTextBox.Text.ToString();
             secondGifttrue = secondGiftTextBox.Text != "";
@@ -66,6 +67,7 @@ namespace ThankYouCardGenerator
         }
 
         private void wasMoney_CheckedChanged(object sender, EventArgs e)
+            //checks to see if the checkbox for wasMoney was checked before setting the bool value.
         {
             if (wasMoney.Checked == true)
             {
@@ -79,9 +81,8 @@ namespace ThankYouCardGenerator
 
         #endregion
         #region ActionIfKeyPressed
-        /*at the senderTextBox, this checks to see if either the Tab Key or the Enter keys are pressed to trigger the creation of the thank you card.  
-         * It will clear out all the other textboxes to allow for another run of the program upon the key event. 
-        */
+        //at the occassionTextBox, this checks to see if the Enter key is pressed to trigger the creation of the thank you card.  
+         
         public void occassionTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
