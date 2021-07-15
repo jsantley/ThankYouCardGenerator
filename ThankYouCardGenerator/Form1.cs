@@ -18,6 +18,7 @@ namespace ThankYouCardGenerator
         string giftOccassion;
         string cardSender;
         string secondGift;
+        bool secondGifttrue;
         bool   money;
 
 
@@ -60,11 +61,20 @@ namespace ThankYouCardGenerator
         private void secondGiftTextBox_TextChanged(object sender, EventArgs e)
         {
             secondGift = secondGiftTextBox.Text.ToString();
+            secondGifttrue = secondGiftTextBox.Text != "";
+
         }
 
         private void wasMoney_CheckedChanged(object sender, EventArgs e)
         {
-            money = true;
+            if (wasMoney.Checked == true)
+            {
+                money = true;
+            } else if (wasMoney.Checked == false)
+            {
+                money = false;
+            }
+            
         }
 
         #endregion
@@ -93,10 +103,26 @@ namespace ThankYouCardGenerator
             //made a method that could be called to generate the note instead of repeated statements. 
             private void generateNote(string giftGiven,string giftGiver, string giftOccassion, string cardSender, string secondGift, bool money)
             {
-            generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  I cannot wait to put it to good use!  \nI am so glad that you could attend my {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            
+            if (secondGifttrue == false && money == false)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven}!  We cannot wait to put it to good use!  \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+
+            } else if (secondGifttrue == false && money == true)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the generous gift!  We cannot wait to put it to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            } else if (secondGifttrue == true && money == false)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the {giftGiven} and the {secondGift}!  We cannot wait to put them to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+
+            }
+            else if (secondGifttrue == true && money == true)
+            {
+                generatedNoteTextBox.Text = $"Dear {giftGiver}, \n \nThank you so much for the generous gifts!  We cannot wait to put them to good use! \nWe are so glad that you could attend our {giftOccassion}! \nThanks again! \nSincerely, \n \n{cardSender}";
+            }
 
             return;
-            }
+        }
 
 
 
@@ -132,6 +158,7 @@ namespace ThankYouCardGenerator
             giftTextBox.Clear();
             generatedNoteTextBox.Clear();
             secondGiftTextBox.Clear();
+            wasMoney.Checked = false;
             
         }
 

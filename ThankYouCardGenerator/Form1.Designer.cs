@@ -119,6 +119,7 @@ namespace ThankYouCardGenerator
             this.occassionTextBox.Size = new System.Drawing.Size(156, 20);
             this.occassionTextBox.TabIndex = 5;
             this.occassionTextBox.TextChanged += new System.EventHandler(this.occassionTextBox_TextChanged);
+            this.occassionTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.occassionTextBox_KeyDown);
             // 
             // senderTextBox
             // 
